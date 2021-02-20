@@ -1,0 +1,26 @@
+.donate-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.donate-paragraph {
+    margin-top: 0px;
+    text-align: center;
+}
+
+.paypal-donate {
+    border-radius: 20px;
+    border:none;
+    height: 25px;
+    width: 120px;    
+    font-weight: bold;
+}
+
+.donate-container li {
+    margin-bottom: 10px;
+}
+
+.donate-container input {
+    width: 250px;
+}

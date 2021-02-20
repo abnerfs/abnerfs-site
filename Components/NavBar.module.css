@@ -1,0 +1,37 @@
+.ul-nav-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ul-nav-bar li {
+    display: inline;
+}
+
+.ul-nav-bar div {
+    display: inline;
+    padding: 8px;
+}
+
+.container-navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+
+.main-title {
+    margin: 0px;
+    margin-bottom: 10px;
+}
+  
+.sub-title {
+    margin: 0px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-size: 15px;
+    font-style: italic;
+}
+  

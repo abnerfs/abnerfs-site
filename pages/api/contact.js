@@ -1,7 +1,24 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 const emailValidator = require('email-validator');
 const fetch = require('node-fetch');
-const { WEBHOOK_URL } = process.env;
+const { WEBHOOK_URL, RECAPTCHA_SECRET } = process.env;
+
+const verifyRecaptcha = (captcha) => {
+  const url = `https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET}&response=${captcha}`;
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(res => { 
+    return res.success
+  })
+  .catch(err => {
+    return false
+  });
+}
 
 export default async (req, res) => {
   if (req.method != 'POST')
@@ -12,12 +29,17 @@ export default async (req, res) => {
       msg: 'WEBHOOK_URL not found'
     });
 
-  const { email, description } = req.body;
-  if (!email || !description || !emailValidator.validate(email)) {
+  const { email, description, captcha } = req.body;
+  if (!email || !description || !emailValidator.validate(email) || !captcha) {
     return res.status(400).json({
       email,
-      description
+      description,
+      captcha
     });
+  }
+
+  if(!await verifyRecaptcha(captcha)) {
+    return res.status(401).send();
   }
 
   const webhookBody = {
@@ -47,7 +69,7 @@ export default async (req, res) => {
   await fetch(WEBHOOK_URL, {
     method: 'POST',
     headers: {
-      "Content-Type" : "application/json"
+      "Content-Type": "application/json"
     },
     body: JSON.stringify(webhookBody)
   });

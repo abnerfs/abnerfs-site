@@ -10,7 +10,7 @@ export default function Contact() {
             <MainContainer>
                 <h3 className={styles['donate-title']}>💲 Donation</h3>
                 <p className={styles['donate-paragraph']}>
-                    I don't know why you would want to donate to me but I'm not going to stop you 🙃
+                    I don't know why you'd want to donate to me but I'm not going to stop you 🙃
                 </p>
                 <div className={styles['donate-container']}>
                     <ul>

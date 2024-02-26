@@ -15,10 +15,10 @@ export default function Contact() {
                 <div className={styles['donate-container']}>
                     <ul>
                         <li>
-                            <strong>🇧🇷 Pix <i>(BRL only)</i></strong>: <input type="text" value="ab0e8ee8-9ecd-458b-aa0c-f5b996118f17" readonly/>
+                            <strong>🇧🇷 Chave Pix <i>(BRL only)</i></strong>: <input type="text" value="ab0e8ee8-9ecd-458b-aa0c-f5b996118f17" readonly/>
                         </li>
                         <li>
-                            <strong><FontAwesomeIcon icon={faPaypal}></FontAwesomeIcon> PayPal (USD only)</strong>: <a href="https://www.paypal.com/donate?hosted_button_id=63DAPH3L9MP8Y" target="_blank">
+                            <strong><FontAwesomeIcon icon={faPaypal}></FontAwesomeIcon> PayPal (USD only)</strong>: <a href="https://www.paypal.com/donate/?hosted_button_id=XDAQUYUGT5PTJ" target="_blank">
                                 <button class={styles['paypal-donate']}> 
                                     Donate
                                 </button>
